@@ -1,0 +1,7 @@
+DEVICE=eth2
+HWADDR=<%= macaddress_eth2 %>
+ONBOOT=yes
+HOTPLUG=no
+MASTER=bond0
+SLAVE=yes
+ETHTOOL_OPTS="speed 1000 duplex full"

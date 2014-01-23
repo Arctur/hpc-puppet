@@ -1,0 +1,4 @@
+CVMFS_REPOSITORIES=atlas.cern.ch,atlas-condb.cern.ch
+CVMFS_QUOTA_LIMIT=5000
+CVMFS_HTTP_PROXY="http://proxy.arnes.si:3128"
+#TODO: it makes sense to access cvmfs thru nearby http proxy

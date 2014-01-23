@@ -1,0 +1,6 @@
+#TODO: point this to your local qlogic ofed repo
+[OFED_QLC]
+name=OFED_QLC
+baseurl=http://repo.lan/OFED_qlc/
+enabled=1
+gpgcheck=0

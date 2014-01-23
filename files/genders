@@ -1,0 +1,8 @@
+#TODO: describe your nodes here
+#for example:
+
+lrms		mgmt
+nfshost		storage
+node0[0-8][0-9]	cpus=12,cputype=westmere,mem=32GB,ib=Qlogic
+fatnode		cpus=12,cputype=westmere,mem=48GB,ib=Qlogic
+vnc		cpus=12,cputype=westmere,mem=64GB,interactive

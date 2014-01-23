@@ -1,0 +1,10 @@
+DEVICE=eth2
+HWADDR=<%= macaddress_eth2 %>
+BOOTPROTO=static
+ONBOOT=yes
+NETWORK=172.30.55.255
+NETMASK=255.255.255.0
+IPADDR=172.30.55.<%= mdsip %>
+USERCTL=no
+MTU=9000
+ETHTOOL_OPTS="speed 1000 duplex full autoneg off"

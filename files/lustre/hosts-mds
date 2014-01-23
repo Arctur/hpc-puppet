@@ -1,0 +1,5 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+#TODO: write private IPs of your lustre MDSes here to match those in drbd.conf
+172.30.55.198	lustre2mds1 lustre2mds1.hpc.lan
+172.30.55.199	lustre2mds2 lustre2mds2.hpc.lan

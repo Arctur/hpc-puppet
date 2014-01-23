@@ -1,0 +1,6 @@
+#TODO: point this to your mellanox ofed repo
+[OFED_MLX]
+name=OFED_MLX
+baseurl=http://repo.lan/OFED_mlx/
+enabled=1
+gpgcheck=0

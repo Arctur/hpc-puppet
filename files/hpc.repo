@@ -1,0 +1,6 @@
+#TODO: point this to your local repository with required pkgs
+[hpc]
+name=hpc
+baseurl=http://repo.lan/hpc/
+enabled=1
+gpgcheck=0

@@ -1,0 +1,21 @@
+#
+#  @(#)$Id: .modulespath.in,v 1.3.20.1 2010/11/11 18:23:18 rkowen Exp $
+#  Module version 3.2.9
+#  init/.modulespath.  Generated from .modulespath.in by configure.
+#
+#  Modulepath initial setup
+#  ========================
+#
+#  This file defines the initial setup for the module files search path.
+#  Comments may be added anywhere, which begin on # and continue until the 
+#     end of the line
+#  Each line containing a single path will be added to the MODULEPATH
+#     environment variable. You may add as many as you want - just
+#     limited by the maximum variable size of your shell.
+#
+#                               # location of version files
+#/usr/share/Modules/$MODULE_VERSION/modulefiles # Module pkg modulefiles (if versioning)
+/usr/share/Modules/modulefiles  # Module pkg modulefiles (if no versioning)
+/etc/modulefiles                                # General module files
+#/usr/share/Modules/your_contribs                       # Edit for your requirements
+/usr/local/modules/all

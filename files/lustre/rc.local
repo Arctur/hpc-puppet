@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# This script will be executed *after* all the other init scripts.
+# You can put your own initialization stuff in here if you don't
+# want to do the full Sys V style init stuff.
+
+#TODO if you need to optimize your NICs you can do it here
+ethtool -G eth1 rx 511 tx 511
+ethtool -G eth2 rx 511 tx 511
+
+touch /var/lock/subsys/local
+

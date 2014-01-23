@@ -1,0 +1,6 @@
+127.0.0.1       localhost.localdomain localhost
+::1             localhost6.localdomain6 localhost6
+
+#TODO: fill this in with all the nodes that you have
+#for example
+10.0.0.24   node024.lan    node024 node24  

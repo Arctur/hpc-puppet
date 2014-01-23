@@ -1,0 +1,82 @@
+# 
+# MAUI configuration 
+# 
+# see http://docs.adaptivecomputing.com/maui/
+#
+#
+#TODO: this is the heart of your queue behaviour, study it carefuly and set it to your needs
+SERVERHOST          <%= fqdn %>
+ADMIN1              root
+ADMINHOST           <%= fqdn %>
+RMTYPE[0]           PBS
+RMHOST[0]           <%= fqdn %>
+RMSERVER[0]         <%= fqdn %>
+
+SERVERPORT            40559
+SERVERMODE            NORMAL
+
+# a max. 10 MByte log file in a logical location
+LOGFILE                 /var/log/maui.log
+LOGFILEMAXSIZE          10000000
+LOGLEVEL                4
+LOGFILEROLLDEPTH        4
+
+# Set PBS server polling interval. Since we have many short jobs
+# and want fast turn-around, set this to 10 seconds (default: 2 minutes)
+RMPOLLINTERVAL          00:00:10
+
+#also cycle deferred jobs quickly
+DEFERTIME               00:00:30
+
+#http://docs.adaptivecomputing.com/maui/8.3nodesetoverview.php
+#enable node subsets based on features in torque nodes db
+NODESETPOLICY ONEOF
+NODESETATTRIBUTE FEATURE
+NODESETLIST normal fat
+NODESETDELAY 0:00:00
+
+#any number of users on same node
+NODEACCESSPOLICY  SHARED
+
+#http://www.clusterresources.com/products/maui/docs/docsout/5.2nodeallocation.shtml#MINRESOURCE
+NODEALLOCATIONPOLICY  MINRESOURCE
+
+#http://www.clusterresources.com/products/maui/docs/docsout/5.4nodeavailability.shtml
+NODEAVAILABILITYPOLICY DEDICATED:PROCS COMBINED:MEM UTILIZED:SWAP
+
+# Backfill: http://docs.adaptivecomputing.com/maui/8.2backfill.php
+BACKFILLPOLICY  ON #FIRSTFIT by default
+
+#reserve resources for two most important jobs
+RESERVATIONPOLICY       CURRENTHIGHEST
+RESERVATIONDEPTH        2
+
+#dont reject jobs with negative priority
+REJECTNEGPRIOJOBS       FALSE
+
+#honour nodes=<x>:ppn=<y> user requests exactly
+JOBNODEMATCHPOLICY EXACTNODE
+
+#allow multiple independent resource requests 
+ENABLEMULTIREQJOBS   TRUE
+
+# Job Priority: http://docs.adaptivecomputing.com/maui/5.1jobprioritization.php
+QUEUETIMEWEIGHT         2 
+
+# FairShare: http://docs.adaptivecomputing.com/maui/6.3fairshare.php
+#we track cpu seconds for last 7 24h periods for fairshare calculations
+FSPOLICY                DEDICATEDPS
+FSDEPTH                 7
+FSINTERVAL              24:00:00
+FSDECAY                 0.8
+FSWEIGHT                1
+FSUSERWEIGHT            5
+FSGROUPWEIGHT           10
+FSCLASSWEIGHT           20
+
+#set queue priority 
+CLASSCFG[grid]          FSTARGET=1
+CLASSCFG[small]         FSTARGET=10
+CLASSCFG[medium]        FSTARGET=100
+CLASSCFG[large]         FSTARGET=200
+

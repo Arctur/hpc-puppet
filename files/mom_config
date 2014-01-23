@@ -1,0 +1,8 @@
+#TODO: point this to your pbs server
+$pbsserver lrms
+$logevent 127
+$usecp *:/home /home
+$restricted lrms
+$node_check_script /sbin/health_check.sh
+$node_check_interval 1,jobstart,jobend
+$down_on_error 1

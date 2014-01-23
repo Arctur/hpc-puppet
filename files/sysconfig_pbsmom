@@ -1,0 +1,4 @@
+
+#we need pbs children to inherit these
+ulimit -l unlimited
+ulimit -s unlimited
