@@ -68,61 +68,61 @@ parts that are interesting for you.
 
 After you're done and there are no TODOs left, you can apply these to your
 nodes:
-
-# queue server
-node 'pbs.hpc.lan' {
+<pre>
+ # queue server
+ node 'pbs.hpc.lan' {
 	include 'hpc-puppet'
 	include 'hpc-puppet::lrms'
-}
-
-#sw build node
-node 'swbuilder.hpc.lan' {
+ }
+ 
+ #sw build node
+ node 'swbuilder.hpc.lan' {
 	include 'hpc-puppet'
 	include 'hpc-puppet::swbuilder'
-}
+ }
 
-#ldap server
-node 'ldap.hpc.lan' {
+ #ldap server
+ node 'ldap.hpc.lan' {
 	include 'hpc-puppet::ldap'
-}
-
-#nfs server
-node 'nfs.hpc.lan' {
+ }
+ 
+ #nfs server
+ node 'nfs.hpc.lan' {
 	include 'hpc-puppet::nfshost'
-}
-
-#grid gateway
-node 'gridgw.hpc.lan' {
+ }
+ 
+ #grid gateway
+ node 'gridgw.hpc.lan' {
 	include 'hpc-puppet'
 	include 'hpc-puppet::grid::gateway'
-}
-
-#login node
-node 'login.hpc.lan {
+ }
+ 
+ #login node
+ node 'login.hpc.lan {
 	include 'hpc-puppet'
 	class { 'hpc-puppet::login': $hpclanif => "eth1", $lustreif => "eth2" }
-}
-
-#compute nodes
-node /node[0-9][0-9][0-9].hpc.lan/ {
+ }
+ 
+ #compute nodes
+ node /node[0-9][0-9][0-9].hpc.lan/ {
 	include 'hpc-puppet'
 	class { 'hpc-puppet::node': $mngmtif => "eth0", $lustreif => "eth0.16", $hpclanif => "eth1", }
 	#if compute node has gpu, this will configure it as interactive remote visualisation node
-}
-
-#lustre servers
-node /mds[12].hpc.lan/ {
+ }
+ 
+ #lustre servers
+ node /mds[12].hpc.lan/ {
 	include 'hpc-puppet'
 	include 'hpc-puppet::lustre::server'
 	include 'hpc-puppet::lustre::mds'
-}
-
-node /oss[0-9][0-9].hpc.lan/ {
+ }
+ 
+ node /oss[0-9][0-9].hpc.lan/ {
 	include 'hpc-puppet'
 	include 'hpc-puppet::lustre::server'
 	inlcude 'hpc-puppet::lustre::oss'
-}
-
+ }
+</pre>
 What is missing here is a node that runs gmetad and ganglia web frontend
 and complete monitoring set (nagios et al), but I believe these are too site
 specific and as such beyond the scope of this little project. However you have
